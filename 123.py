@@ -44,7 +44,7 @@ for n in range(1, 20):
     result_recursive = recursive_factorial(n)
     result_iterative = iterative_factorial(n)
     print(f"Рекурсивное значение: {result_recursive}")
-    #print(f"Итеративное значение: {result_iterative}")
+    print(f"Итеративное значение: {result_iterative}")
     print()
 
 # Определение времени выполнения для разных значений n
