@@ -29,12 +29,12 @@ def recursive_factorial(n):
 
 
 # Функция для вычисления значения
-def dynamic_F(n, cache={1: 1}):
+def dynamic_F(n,znak = 1, cache={1: 1}):
     if n in cache:
         return cache[n]
     else:
-
-        result = (-1) ** n * (dynamic_F(n - 1, cache)/ dynamic_fact(2 * n))
+        znak *= -1
+        result = znak * (dynamic_F(n - 1, cache, znak)/ dynamic_fact(2 * n, znak))
         cache[n] = result
         return result
 
@@ -44,7 +44,7 @@ def score_time(func, n):
     return timeit.timeit(lambda: func(n), number=1000)
 
 
-n_values = range(1, 10)
+n_values = range(1, 100)
 recursive_times = []
 dynamic_times = []
 
