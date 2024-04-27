@@ -34,7 +34,7 @@ def dynamic_F(n, cache={1: 1}):
         return cache[n]
     else:
 
-        result = (-1) ** n * (dynamic_F(n - 1, cache) + dynamic_fact(n - 1) / dynamic_fact(2 * n))
+        result = (-1) ** n * (dynamic_F(n - 1, cache)/ dynamic_fact(2 * n))
         cache[n] = result
         return result
 
