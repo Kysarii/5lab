@@ -15,9 +15,9 @@ factorial_cache = {0: 1, 1: 1}
 
 
 # Функция для вычисления факториала числа
-def dynamic_factorial(n):
+def dynamic_fact(n):
     if n not in factorial_cache:
-        factorial_cache[n] = n * dynamic_factorial(n - 1)
+        factorial_cache[n] = n * dynamic_fact(n - 1)
     return factorial_cache[n]
 
 
@@ -34,7 +34,7 @@ def dynamic_F(n, cache={1: 1}):
         return cache[n]
     else:
 
-        result = (-1) ** n * (dynamic_F(n - 1, cache) + dynamic_factorial(n - 1) / dynamic_factorial(2 * n))
+        result = (-1) ** n * (dynamic_F(n - 1, cache) + dynamic_fact(n - 1) / dynamic_fact(2 * n))
         cache[n] = result
         return result
 
@@ -50,7 +50,7 @@ dynamic_times = []
 
 for n in n_values:
     recursive_times.append(score_time(recursive_factorial, n))
-    dynamic_times.append(score_time(dynamic_factorial, n))
+    dynamic_times.append(score_time(dynamic_fact, n))
 
 print(f"{'n':<10}{'Рекурсивное время (мс)':<25}{'Динамическое время (мс)':<25}")
 for i, n in enumerate(n_values):
