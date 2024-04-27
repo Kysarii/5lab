@@ -29,12 +29,14 @@ def recursive_factorial(n):
 
 
 # Функция для вычисления значения
-def dynamic_F(n,znak = 1, cache={1: 1}):
+step = 1
+def dynamic_F(n, cache={1: 1}):
     if n in cache:
         return cache[n]
     else:
-        znak *= -1
-        result = znak * (dynamic_F(n - 1, cache, znak)/ dynamic_fact(2 * n, znak))
+        global step
+        step *= -1
+        result = step * (dynamic_F(n - 1, cache, step)/ dynamic_fact(2 * n, step))
         cache[n] = result
         return result
 
