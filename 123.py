@@ -46,12 +46,11 @@ def score_time(func, n):
 
 n_values = range(1, 10)
 recursive_times = []
-iterative_times = []
 dynamic_times = []
 
 for n in n_values:
     recursive_times.append(score_time(recursive_factorial, n))
-    dynamic_times.append(score_time(dynamic_F, n))
+    dynamic_times.append(score_time(dynamic_factorial, n))
 
 print(f"{'n':<10}{'Рекурсивное время (мс)':<25}{'Динамическое время (мс)':<25}")
 for i, n in enumerate(n_values):
