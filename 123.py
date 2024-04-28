@@ -12,13 +12,15 @@ import matplotlib.pyplot as plt
 # Кэш для хранения вычисленных значений факториалов
 
 factorial_cache = {0: 1, 1: 1}
-
-
+last_factorial = 1
 # Функция для вычисления факториала числа
 def dynamic_fact(n):
-    if n not in factorial_cache:
-        factorial_cache[n] = n * dynamic_fact(n - 1)
-    return factorial_cache[n]
+    global last_factorial
+    if n in factorial_cache:
+        last_factorial = n * factorial_cache[n]
+    else:
+        last_factorial = n * last_factorial
+    return last_factorial
 
 
 def recursive_factorial(n):
@@ -46,7 +48,7 @@ def score_time(func, n):
     return timeit.timeit(lambda: func(n), number=1000)
 
 
-n_values = range(1, 100)
+n_values = range(1, 10)
 recursive_times = []
 dynamic_times = []
 
