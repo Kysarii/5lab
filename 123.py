@@ -16,10 +16,7 @@ last_factorial = 1
 # Функция для вычисления факториала числа
 def dynamic_fact(n):
     global last_factorial
-    if n in factorial_cache:
-        last_factorial = n * factorial_cache[n]
-    else:
-        last_factorial = n * last_factorial
+    last_factorial = n * last_factorial
     return last_factorial
 
 
